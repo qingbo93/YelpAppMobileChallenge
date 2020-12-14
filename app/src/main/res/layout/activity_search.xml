@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:minHeight="?android:attr/actionBarSize"
+                android:theme="@style/AppTheme">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/nav_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:navigationIcon="@drawable/abc_vector_test"
+                    app:title="Search Results" />
+            </com.google.android.material.appbar.AppBarLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sort_button_a"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/sort_button_a_text"
+            app:layout_constraintTop_toBottomOf="@+id/top_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/sort_button_b"
+            android:visibility="invisible"
+            android:onClick="onSortButtonClicked"/>
+
+        <Button
+            android:id="@+id/sort_button_b"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:text="@string/sort_button_b_text"
+            app:layout_constraintTop_toBottomOf="@+id/top_layout"
+            app:layout_constraintStart_toEndOf="@+id/sort_button_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            android:onClick="onSortButtonClicked"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="20dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@+id/sort_button_b"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/more_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClick"
+            android:background="#80000000">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:background="#FFFFFF">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/store_picture"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/store_name"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        app:layout_constraintTop_toBottomOf="@id/store_picture"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:id="@+id/store_rating"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:onClick="onClick"
+                        app:layout_constraintTop_toBottomOf="@id/store_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/store_address"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:onClick="onClick"
+                        app:layout_constraintTop_toBottomOf="@id/store_rating"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/store_isOpen"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/colorBlack"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:onClick="onClick"
+                        app:layout_constraintTop_toBottomOf="@id/store_address"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:paddingBottom="40dp"
+                        android:layout_marginTop="10dp" />
+
+                    <ImageView
+                        android:id="@+id/store_review_picture_1"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toBottomOf="@id/store_isOpen"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <ImageView
+                        android:id="@+id/store_review_picture_2"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toBottomOf="@id/store_isOpen"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/store_review_picture_1" />
+
+                    <ImageView
+                        android:id="@+id/store_review_picture_3"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toBottomOf="@id/store_isOpen"
+                        app:layout_constraintStart_toStartOf="@id/store_review_picture_1"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

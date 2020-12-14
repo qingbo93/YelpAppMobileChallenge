@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/appbar_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:minHeight="?android:attr/actionBarSize"
+            android:theme="@style/AppTheme">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/nav_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:title="Yelp Search" />
+        </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="30dp"
+            android:checkedButton="@+id/radio_key_term"
+            app:layout_constraintBottom_toTopOf="@+id/search_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <RadioButton
+                android:id="@+id/radio_key_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_term_string"
+                android:layout_weight="1"
+                android:onClick="onRadioButtonClicked"/>
+            <RadioButton
+                android:id="@+id/radio_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/search_location_string"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconifiedByDefault="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:queryHint="@string/enter_search_key"
+            android:onClick="onSearchButtonClicked"/>
+
+        <Button
+            android:id="@+id/action_button"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/search_button_text"
+            app:layout_constraintTop_toBottomOf="@+id/search_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="onSearchButtonClicked"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MobileCodingChallenge</string>
+    <string name="api_base_url">https://api.yelp.com/v3/businesses/</string>
+
+    <string name="client_id">H2XwDI_6yAEG9Vt4H2Xr3A</string>
+    <string name="api_key">rG5bjw8QqfdjV5MVzqNBfM3qf3xPIME2hpyeQ6GaudApATV3Kt1yMhg1oqDav-UysGxZ93GL9HEo9Rh-dq32lOau808f5EJwvXa-r6sDziIDL95HlXk1yYUYenDNX3Yx</string>
+    <string name="enter_search_key">Enter Search Term</string>
+    <string name="search_location_string">Search by Location</string>
+    <string name="search_term_string">Search by key term</string>
+    <string name="search_button_text">Search</string>
+    <string name="sort_button_a_text">A-Z</string>
+    <string name="sort_button_b_text">Z-A</string>
+</resources>
